@@ -41,7 +41,7 @@ class ResBlock(nn.Module):
         out = torch.relu(out)
         return out
 
-        
+
 class ResNet18(nn.Module):
     '''A ResNet18 model'''
     def __init__(self, num_classes:int=8):  # Set to your number of classes
@@ -57,3 +57,30 @@ class ResNet18(nn.Module):
 
         self.avg_pool = nn.AdaptiveAvgPool2d((1,1))
         self.fc = nn.Linear(512, num_classes)
+    def make_blocks(self, block:ResBlock, out_channels:int, num_blocks:int, stride:int):
+        '''make a residual block'''
+        strides = [stride] + [1]*(num_blocks-1)
+        layers = []
+        for i in strides:
+            layers.append(block(self.in_channels, out_channels, stride=i))
+            self.in_channels=out_channels
+        return nn.Sequential(*layers)
+
+    def forward(self, x:torch.tensor)->torch.tensor:
+        out = self.batchnorm1(self.conv1(x))
+        out = F.max_pool2d(torch.relu(out), 2)
+        out = F.dropout(out, p=0.1, training=self.training)
+
+        out = self.layer1(out)
+        out = F.dropout(out, p=0.1, training=self.training)
+        out = self.layer2(out)
+        out = F.dropout(out, p=0.2, training=self.training)
+        out = self.layer3(out)
+        out = F.dropout(out, p=0.3, training=self.training)
+        out = self.layer4(out)
+
+        out = self.avg_pool(out)
+        out = out.view(out.shape[0], -1)
+        out = F.dropout(out, p=0.5, training=self.training)
+        out = self.fc(out)
+        return out
