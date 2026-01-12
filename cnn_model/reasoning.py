@@ -40,3 +40,20 @@ class ResBlock(nn.Module):
         out += self.shortcut(x)
         out = torch.relu(out)
         return out
+
+        
+class ResNet18(nn.Module):
+    '''A ResNet18 model'''
+    def __init__(self, num_classes:int=8):  # Set to your number of classes
+        super().__init__()
+        self.in_channels=64
+        self.conv1 = nn.Conv2d(in_channels=3, out_channels=64, kernel_size=7, stride=2, padding=3, bias=False)
+        self.batchnorm1 = nn.BatchNorm2d(num_features=64)
+
+        self.layer1 = self.make_blocks(ResBlock, 64, 2, 1)
+        self.layer2 = self.make_blocks(ResBlock, 128, 2, 2)
+        self.layer3 = self.make_blocks(ResBlock, 256, 2, 2)
+        self.layer4 = self.make_blocks(ResBlock, 512, 2, 2)
+
+        self.avg_pool = nn.AdaptiveAvgPool2d((1,1))
+        self.fc = nn.Linear(512, num_classes)
