@@ -1,0 +1,101 @@
+.signup-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("https://res.cloudinary.com/drtiwkyvj/image/upload/v1760432649/signup-wallpaper_ziftya.jpg");
+  background-color: black;
+  background-size: contain;
+  background-position: left;
+  background-repeat: no-repeat;
+  color: rgb(255, 255, 255);
+}
+
+.signup {
+  padding: 20px;
+  background: #303030;
+  background: linear-gradient(
+    0deg,
+    rgba(38, 38, 38, 1) 0%,
+    rgba(23, 23, 23, 1) 100%
+  );
+  border: 0.5px solid rgb(54, 53, 53);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.signup > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.route-link-signin {
+  color: rgb(123, 123, 123);
+  text-decoration: underline;
+}
+
+.create-an-account {
+  font-size: large;
+}
+
+.already-have-account {
+  text-align: center;
+}
+
+.enter-info-below,
+.password-constraint,
+.confirm-password-constraint,
+.already-have-account {
+  font-size: small;
+  color: rgb(123, 123, 123);
+}
+
+.username,
+.password,
+.confirm-password {
+  font-size: small;
+}
+
+.username-input,
+.password-input,
+.confirm-password-input {
+  padding: 8px;
+  font-size: small;
+  border: 0.5px solid rgb(54, 53, 53);
+  border-radius: 4px;
+  background-color: #212121;
+  color: white;
+}
+
+.username-input::placeholder {
+  font-size: small;
+  color: rgb(123, 123, 123);
+}
+
+.create-account-button {
+  padding: 8px;
+  border: 1px solid transparent;
+  background-color: white;
+  color: black;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  transition: opacity 0.2s;
+}
+
+.create-account-button:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.create-account-button:disabled {
+  cursor: not-allowed;
+}
