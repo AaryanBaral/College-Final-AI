@@ -1,0 +1,114 @@
+.create-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.create-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  color: white;
+}
+
+.create-card {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  border-radius: 12px;
+  gap: 6rem;
+  padding: 26px;
+  background-color: #171717;
+}
+
+.create {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.create-buttons {
+  display: flex;
+  flex-direction: rows;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.fundus-image-analysis {
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgb(53, 53, 53);
+  text-align: center;
+}
+
+.image-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.image-container {
+  width: 330px;
+  height: 300px;
+  border: 0.5px solid rgb(53, 53, 53);
+  background-color: #121212;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(103, 103, 103);
+}
+
+.start-detection-button,
+.upload-image-button {
+  padding-inline: 12px;
+  padding-block: 4px;
+  font-size: medium;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.start-detection-button:hover,
+.upload-image-button:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.detection-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 400px;
+}
+
+.detection-result {
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgb(53, 53, 53);
+  text-align: center;
+}
+
+.detection {
+  border: 0.5px solid rgb(53, 53, 53);
+  background-color: #121212;
+  margin-top: 32px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(103, 103, 103);
+}
+
+.caution {
+  color: rgb(103, 103, 103);
+  font-size: small;
+  margin-top: 46px;
+  text-align: center;
+}
+
+.image-upload-field {
+  display: none;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}

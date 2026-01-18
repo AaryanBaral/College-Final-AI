@@ -1,0 +1,42 @@
+.home-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-main {
+  flex: 1;
+  background-color: #0a0a0a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 26px;
+}
+
+.home-card {
+  border: 0.5px solid rgb(53, 53, 53);
+  border-radius: 10px;
+  background-color: #171717;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding: 16px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.image {
+  width: 200px;
+  height: 200px;
+}
+
+.description {
+}
+
+.home-card-top {
+  text-align: center;
+}
